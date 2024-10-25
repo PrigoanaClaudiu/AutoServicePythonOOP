@@ -4,7 +4,7 @@ Requirements:
 
 3.1. CRUD operations for Car: Includes id, model, purchase year, km driven, under warranty status. Ensure km driven and purchase year are strictly positive values.
 
-3.2. CRUD operations for Client Card: Includes id, first name, last name, CNP, date of birth (dd.mm.yyyy), registration date (dd.mm.yyyy). CNP must be unique.
+3.2. CRUD operations for Client Card: Includes id, first name, last name, CNP, date of birth (dd.mm.yyyy), registration date (dd.mm.yyyy). CNP must be unique(in service).
 
 3.3. CRUD operations for Transaction: Includes id, car_id, client_card_id (can be null), part cost, labor cost, date, and time. If a client card is present, apply a 10% discount on labor costs. If the car is under warranty, parts are free. Print the total price paid and any discounts applied.
 
@@ -24,4 +24,4 @@ Requirements:
 
 3.11. Data export in JSON format.
 
-The project should follow a layered architecture and use Abstract Base Classes (ABC), type hinting, and protocols. Additionally, implement an efficient undo/redo functionality to allow users to revert or reapply actions as needed.
+The project should follow a layered architecture and use Abstract Base Classes (ABC), type hinting, and protocols.
