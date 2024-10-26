@@ -289,3 +289,11 @@ class Console:
                 break
             else:
                 print("Optiune invalida. Reincercati.")
+
+    def ui_full_text_search_cars(self, param):
+        for i in self.__car_service.cautareFullText(param):
+            print(i)
+
+    def ui_full_text_search_clients(self, param):
+        for i in self.__client_card_service.cautareFullText(param):
+            print(i)

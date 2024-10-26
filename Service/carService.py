@@ -25,3 +25,13 @@ class CarService:
         car = Car(idCar, model, year, milage, guarantee)
         self.__carValidation.validateCar(car)
         self.__carrepository.update(car)
+
+    def cautareFullText(self, para):
+        cars = self.__carrepository.read()
+        rez = []
+        for i in cars:
+            if para in i.model or para in str(i.year) \
+                    or para in str(i.milage) \
+                    or para in ("DA" if i.guarantee else "NU"):
+                rez.append(i)
+        return rez

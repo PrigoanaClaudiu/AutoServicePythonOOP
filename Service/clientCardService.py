@@ -56,3 +56,13 @@ class ClientCardService:
 
                 self.__repository.add(client)
                 nrClienti += 1
+
+    def cautareFullText(self, para):
+        clienti = self.__repository.read()
+        rez = []
+        for i in clienti:
+            if para in i.name or para in i.surname \
+                    or para in i.CNP or para in i.date_of_birth \
+                    or para in i.date_of_registration:
+                rez.append(i)
+        return rez
