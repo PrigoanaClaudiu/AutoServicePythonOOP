@@ -10,19 +10,30 @@ class RepositoryJson(RepositoryInMemory):
         self.filename = 'repository.json'
 
     def __readfile(self):
-        pass
+        try:
+            with open(self.filename, 'r') as f:
+                return jsonpickle.loads(f.read())
+        except Exception as e:
+            return e
 
     def __writefile(self):
-        pass
+        with open(self.filename, 'w') as f:
+            f.write(jsonpickle.dumps(self.__readfile()))
 
     def read(self, idEntity=None):
         pass
 
     def add(self, entity: Entity):
-        pass
+        self.entities = self.__readfile()
+        super().add(entity)
+        self.__writefile()
 
     def remove(self, idEntity):
-        pass
+        self.entities = self.__readfile()
+        super().remove(idEntity)
+        self.__writefile()
 
     def update(self, entity: Entity):
-        pass
+        self.entities = self.__readfile()
+        super().update(entity)
+        self.__writefile()
