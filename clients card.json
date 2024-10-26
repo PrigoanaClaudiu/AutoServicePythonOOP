@@ -16,5 +16,41 @@
     "CNP": "2153245943",
     "date_of_birth": "07.08.2010",
     "date_of_registration": "09.02.2019"
+  },
+  "79821": {
+    "py/object": "Entities.clientCard.ClientCard",
+    "idEntity": "79821",
+    "name": "Prigoana",
+    "surname": "Marius",
+    "CNP": "5754153444626",
+    "date_of_birth": "20.08.1994",
+    "date_of_registration": "23.08.2021"
+  },
+  "79184": {
+    "py/object": "Entities.clientCard.ClientCard",
+    "idEntity": "79184",
+    "name": "Lupas",
+    "surname": "Claudiu",
+    "CNP": "7357524251102",
+    "date_of_birth": "16.01.2003",
+    "date_of_registration": "21.09.2021"
+  },
+  "82003": {
+    "py/object": "Entities.clientCard.ClientCard",
+    "idEntity": "82003",
+    "name": "Lupas",
+    "surname": "Denis",
+    "CNP": "2956775436232",
+    "date_of_birth": "20.08.1994",
+    "date_of_registration": "19.09.2020"
+  },
+  "30044": {
+    "py/object": "Entities.clientCard.ClientCard",
+    "idEntity": "30044",
+    "name": "Nemes",
+    "surname": "Alex",
+    "CNP": "3269151746522",
+    "date_of_birth": "09.08.1999",
+    "date_of_registration": "23.08.2021"
   }
 }

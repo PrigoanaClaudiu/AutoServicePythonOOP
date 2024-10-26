@@ -1,3 +1,5 @@
+from random import randint, choice
+
 from Entities.clientCard import ClientCard
 from Repository.repository import Repository
 from Entities.clientCardValidation import ClientValidator
@@ -34,3 +36,23 @@ class ClientCardService:
 
         if CNP in [client.CNP for client in self.__repository.read()]:
             print("CNP already exists!")
+
+    def clientiGenerati(self, n):
+        nrClienti = 0
+        numeC = ['Pop', 'Prigoana', 'Marginean', 'Lupas', 'Pasca', 'Nemes']
+        prenumeC = ['Claudiu', 'Alex', 'Adi', 'Razvan', 'Denis', 'Marius']
+        dataNas = ['16.01.2003', '17.01.1993', '20.08.1994', '09.08.1999']
+        dataInr = ['18.01.2019', '19.09.2020', '21.09.2021', '23.08.2021']
+
+        while nrClienti < n:
+            idClient = str(randint(1, 100000))
+            if self.__repository.read(idClient) is None:  # Verifică dacă ID-ul este unic înainte de a continua
+                nume = choice(numeC)
+                prenume = choice(prenumeC)
+                cnp = str(randint(1000000000000, 9999999999999))
+                dataN = choice(dataNas)
+                dataI = choice(dataInr)
+                client = ClientCard(idClient, nume, prenume, cnp, dataN, dataI)
+
+                self.__repository.add(client)
+                nrClienti += 1

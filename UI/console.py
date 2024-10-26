@@ -276,3 +276,16 @@ class Console:
                 print("Wrong option! Please reload:")
 
     # Define functionality methods here...
+    def generate_random_clients(self):
+        while True:
+            print("1. Generate n random clients")
+            print("x. Iesire.")
+            optiune = input("Optiune: ")
+            if optiune == "1":
+                n = int(input("n: "))
+                self.__client_card_service.clientiGenerati(n)
+                self.show_all_clients()
+            elif optiune == "x":
+                break
+            else:
+                print("Optiune invalida. Reincercati.")
