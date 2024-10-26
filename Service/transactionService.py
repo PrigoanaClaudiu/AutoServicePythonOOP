@@ -81,3 +81,23 @@ class TransactionService:
         car = self.__repositoryCar.read(car_id)
         cascade.append(car)
         self.__repositoryCar.remove(car.idEntity)
+
+    def removeFromStartToEnd(self, a1, b1):
+        a = a1.split('.')
+        b = b1.split('.')
+        lista = []
+        tranzactii = self.getAll()
+        for tranzactie in tranzactii:
+            tran = tranzactie.data.split('.')
+            if a[2] < tran[2] < b[2]:
+                self.remove(tranzactie.idEntitate)
+                lista.append(tranzactie)
+            elif a[2] == tran[2] == b[2] \
+                    and a[1] < tran[1] < b[1]:
+                self.remove(tranzactie.idEntitate)
+                lista.append(tranzactie)
+            elif a[2] == tran[2] == b[2] \
+                    and a[1] == tran[1] == b[1] \
+                    and a[0] < tran[0] < b[0]:
+                self.remove(tranzactie.idEntitate)
+                lista.append(tranzactie)

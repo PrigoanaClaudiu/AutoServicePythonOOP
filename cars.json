@@ -5,7 +5,7 @@
     "model": "ceva",
     "year": "2000",
     "mileage": "215412",
-    "guarantee": "DA"
+    "guarantee": "NU"
   },
   "2": {
     "py/object": "Entities.car.Car",
@@ -13,6 +13,14 @@
     "model": "ceva tare",
     "year": "2019",
     "mileage": "3124",
-    "guarantee": "NU"
+    "guarantee": "DA"
+  },
+  "3": {
+    "py/object": "Entities.car.Car",
+    "idEntity": "3",
+    "model": "toyota",
+    "year": "2020",
+    "mileage": "20000",
+    "guarantee": "DA"
   }
 }

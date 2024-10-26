@@ -242,9 +242,6 @@ class Console:
         while True:
             print("1. Full-text search for cars.")
             print("2. Full-text search for clients.")
-            print("3. Show all transactions within a given amount range.")
-            print("4. Show cars sorted descending by labor cost.")
-            print("5. Show client cards sorted descending by discount value.")
             print("6. Delete all transactions within a certain date range.")
             print("7. Update warranty status for each car: a car is under warranty if and only if it is less than 3 years old and has less than 60,000 km.")
             print("x. Exit.")
@@ -256,20 +253,12 @@ class Console:
             elif option == "2":
                 param = input("Enter search parameter: ")
                 self.ui_full_text_search_clients(param)
-            elif option == "3":
-                low = float(input("Enter lower bound of the range: "))
-                high = float(input("Enter upper bound of the range: "))
-                self.ui_show_transactions_in_amount_range(low, high)
-            elif option == "4":
-                self.ui_show_cars_sorted_by_labor_cost()
-            elif option == "5":
-                self.ui_show_clients_sorted_by_discount()
             elif option == "6":
                 start = input("Enter start date: ")
                 end = input("Enter end date: ")
-                self.ui_delete_transactions_in_date_range(start, end)
+                self.__transaction_service.removeFromStartToEnd(start, end)
             elif option == "7":
-                self.ui_update_car_warranty_status()
+                self.__car_service.updateGuarentee()
             elif option == "x":
                 break
             else:

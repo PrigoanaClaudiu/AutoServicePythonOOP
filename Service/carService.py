@@ -2,6 +2,7 @@ from Entities.car import Car
 from Entities.carValidation import CarValidation
 from Repository.repository import Repository
 
+
 class CarService:
     def __init__(self, repository: Repository, carvali: CarValidation):
         self.__carrepository = repository
@@ -35,3 +36,16 @@ class CarService:
                     or para in ("DA" if i.guarantee else "NU"):
                 rez.append(i)
         return rez
+
+    def updateGuarentee(self):
+        for car in self.getCars():
+            if int(car.year) >= 2018 and int(car.mileage) <= 60000:
+                self.updateCar(car.idEntity,
+                               car.model,
+                               car.year,
+                               car.mileage, 'DA')
+            else:
+                self.updateCar(car.idEntity,
+                               car.model,
+                               car.year,
+                               car.mileage, 'NU')
