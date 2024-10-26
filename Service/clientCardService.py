@@ -20,10 +20,17 @@ class ClientCardService:
     def removeClientCard(self, idClient):
         client = self.__repository.read(idClient)
 
-        self.__repository.remove(client)
+        self.__repository.remove(idClient)
 
-    def updateClientCard(self, idClient, name, surname, CNP, date_of_birth):
-        client = ClientCard(idClient, name, surname, CNP, date_of_birth)
+    def updateClientCard(self, idClient, name, surname, CNP, date_of_birth, date_of_registration):
+        client = ClientCard(idClient, name, surname, CNP, date_of_birth, date_of_registration)
 
         self.__clientValidator.valideaza(client)
         self.__repository.update(client)
+
+    def verifyCNP(self, name, surname, CNP, date_of_birth, date_of_registration):
+        if not all([name, surname, CNP, date_of_birth, date_of_registration]):
+            raise IndexError
+
+        if CNP in [client.CNP for client in self.__repository.read()]:
+            print("CNP already exists!")

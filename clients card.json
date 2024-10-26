@@ -1,0 +1,20 @@
+{
+  "1": {
+    "py/object": "Entities.clientCard.ClientCard",
+    "idEntity": "1",
+    "name": "clau",
+    "surname": "prig",
+    "CNP": "12423523",
+    "date_of_birth": "16.01.2003",
+    "date_of_registration": "17.09.2009"
+  },
+  "2": {
+    "py/object": "Entities.clientCard.ClientCard",
+    "idEntity": "2",
+    "name": "claudelu",
+    "surname": "prighi",
+    "CNP": "2153245943",
+    "date_of_birth": "07.08.2010",
+    "date_of_registration": "09.02.2019"
+  }
+}

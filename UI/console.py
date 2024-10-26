@@ -19,8 +19,6 @@ class Console:
             print("4. Functionalities.")
             print("5. Generate random clients.")
             print("6. Cascade delete.")
-            print("u. Undo.")
-            print("r. Redo.")
             print("x. Exit.")
             option = input("Choose an option: ")
 
@@ -128,10 +126,10 @@ class Console:
             client_id = input("Enter client ID: ")
             last_name = input("Enter last name: ")
             first_name = input("Enter first name: ")
-            ssn = input("Enter SSN: ")
+            ssn = input("Enter CNP: ")
             birth_date = input("Enter birth date: ")
             registration_date = input("Enter registration date: ")
-            self.__client_card_service.verify_ssn(last_name, first_name, ssn, birth_date, registration_date)
+            self.__client_card_service.verifyCNP(last_name, first_name, ssn, birth_date, registration_date)
             self.__client_card_service.addClientCard(client_id, last_name, first_name, ssn, birth_date, registration_date)
         except KeyError as e:
             print(e)
@@ -150,10 +148,10 @@ class Console:
             client_id = input("Enter client ID: ")
             last_name = input("Enter last name: ")
             first_name = input("Enter first name: ")
-            ssn = input("Enter SSN: ")
+            ssn = input("Enter CNP: ")
             birth_date = input("Enter birth date: ")
             registration_date = input("Enter registration date: ")
-            self.__client_card_service.verify_ssn(last_name, first_name, ssn, birth_date, registration_date)
+            self.__client_card_service.verifyCNP(last_name, first_name, ssn, birth_date, registration_date)
             self.__client_card_service.updateClientCard(client_id, last_name, first_name, ssn, birth_date, registration_date)
         except KeyError as e:
             print(e)
@@ -233,7 +231,7 @@ class Console:
     def show_all_transactions(self):
         result = []
         for transaction in self.__transaction_service.getAll():
-            total_cost = transaction.labor_cost + transaction.parts_cost
+            total_cost = transaction.sumLabor + transaction.sumParts
             result.append({
                 "transaction": transaction,
                 "total cost": total_cost,

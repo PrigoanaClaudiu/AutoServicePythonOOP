@@ -1,0 +1,22 @@
+{
+  "1": {
+    "py/object": "Entities.transaction.Transaction",
+    "idEntity": "1",
+    "idCar": "1",
+    "idClient": "1",
+    "sumParts": 0,
+    "sumLabor": 279.0,
+    "date": "10.09.2022",
+    "hours": "12:01"
+  },
+  "2": {
+    "py/object": "Entities.transaction.Transaction",
+    "idEntity": "2",
+    "idCar": "2",
+    "idClient": "",
+    "sumParts": 3000.0,
+    "sumLabor": 90.0,
+    "date": "10.03.2020",
+    "hours": "12:11"
+  }
+}

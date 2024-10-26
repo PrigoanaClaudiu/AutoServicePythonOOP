@@ -23,15 +23,12 @@ class TransactionService:
         if self.__repositoryCar.read(idCar) is None:
             raise KeyError(f'Car {idCar} does not exist')
 
-        if self.__repositoryCardClient.read(idClient) is None:
-            raise KeyError(f'Client {idClient} does not exist')
-
         trans = Transaction(id, idCar, idClient, sumParts, sumLabor, date, hour)
 
         self.__tansVali.valideaza(trans)
 
         # parts are free if the car is under guarantee
-        car = self.__repositoryCar(idCar)
+        car = self.__repositoryCar.read(idCar)
         if car.guarantee == "DA":
             trans.sumParts = 0
 
@@ -47,7 +44,7 @@ class TransactionService:
     def remove(self, id):
         car = self.__repository.read(id)
 
-        self.__repository.remove(car)
+        self.__repository.remove(id)
 
     def update(self, id, idCar, idClient, sumParts, sumLabor, date, hour):
         if self.__repositoryCar.read(idCar) is None:
