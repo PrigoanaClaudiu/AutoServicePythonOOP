@@ -69,3 +69,15 @@ class TransactionService:
             trans.sumLabor = sumLabor - (sumLabor * 10 / 100)
 
         self.__repository.update(trans)
+
+    def cascade_delete(self, car_id):
+        cascade = []
+
+        for transaction in self.__repository.read():
+            if transaction.idCar == car_id:
+                cascade.append(transaction)
+                self.__repository.remove(transaction.idEntity)
+
+        car = self.__repositoryCar.read(car_id)
+        cascade.append(car)
+        self.__repositoryCar.remove(car.idEntity)
