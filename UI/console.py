@@ -242,8 +242,9 @@ class Console:
         while True:
             print("1. Full-text search for cars.")
             print("2. Full-text search for clients.")
-            print("6. Delete all transactions within a certain date range.")
-            print("7. Update warranty status for each car: a car is under warranty if and only if it is less than 3 years old and has less than 60,000 km.")
+            print("3. Delete all transactions within a certain date range.")
+            print("4. Update warranty status for each car: a car is under warranty "
+                  "if and only if it is less than 3 years old and has less than 60,000 km.")
             print("x. Exit.")
 
             option = input("Choose an option: ")
@@ -253,18 +254,17 @@ class Console:
             elif option == "2":
                 param = input("Enter search parameter: ")
                 self.ui_full_text_search_clients(param)
-            elif option == "6":
+            elif option == "3":
                 start = input("Enter start date: ")
                 end = input("Enter end date: ")
                 self.__transaction_service.removeFromStartToEnd(start, end)
-            elif option == "7":
+            elif option == "4":
                 self.__car_service.updateGuarentee()
             elif option == "x":
                 break
             else:
                 print("Wrong option! Please reload:")
 
-    # Define functionality methods here...
     def generate_random_clients(self):
         while True:
             print("1. Generate n random clients")
