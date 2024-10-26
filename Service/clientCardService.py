@@ -9,7 +9,7 @@ class ClientCardService:
         self.__repository = repositoryCard
 
     def getClientCard(self):
-        self.__repository.read()
+        return self.__repository.read()
 
     def addClientCard(self, idClient, name, surname, CNP, date_of_birth, date_of_registration):
         card = ClientCard(idClient, name, surname, CNP, date_of_birth, date_of_registration)

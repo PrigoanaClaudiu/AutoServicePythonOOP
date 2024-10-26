@@ -5,8 +5,7 @@ from Repository.repository import Repository
 from Entities.transaction import Transaction
 
 
-
-class transactionService:
+class TransactionService:
     def __init__(self, repositoryTransaction: Repository, tansVali: TranzactieValidator,
                  carVali: CarValidation, cltCardVali: ClientValidator,
                  repositoryCar: Repository, repositoryCardClient: Repository):

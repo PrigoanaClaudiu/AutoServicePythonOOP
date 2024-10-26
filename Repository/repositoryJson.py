@@ -5,23 +5,25 @@ from Repository.repositoryInMemory import RepositoryInMemory
 
 
 class RepositoryJson(RepositoryInMemory):
-    def __init__(self):
+    def __init__(self, filename):
         super().__init__()
-        self.filename = 'repository.json'
+        self.filename = filename
 
     def __readfile(self):
         try:
             with open(self.filename, 'r') as f:
                 return jsonpickle.loads(f.read())
+        # if the file is empty or contains invalid details, i will return an empty dict
         except Exception as e:
-            return e
+            return {}
 
     def __writefile(self):
         with open(self.filename, 'w') as f:
-            f.write(jsonpickle.dumps(self.__readfile()))
+            f.write(jsonpickle.dumps(self.entities, indent=2))
 
     def read(self, idEntity=None):
-        pass
+        self.entities = self.__readfile()
+        return super().read(idEntity)
 
     def add(self, entity: Entity):
         self.entities = self.__readfile()

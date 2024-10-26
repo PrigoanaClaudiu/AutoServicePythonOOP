@@ -1,0 +1,18 @@
+{
+  "1": {
+    "py/object": "Entities.car.Car",
+    "idEntity": "1",
+    "model": "ceva",
+    "year": "2000",
+    "mileage": "215412",
+    "guarantee": "DA"
+  },
+  "2": {
+    "py/object": "Entities.car.Car",
+    "idEntity": "2",
+    "model": "ceva tare",
+    "year": "2019",
+    "mileage": "3124",
+    "guarantee": "NU"
+  }
+}

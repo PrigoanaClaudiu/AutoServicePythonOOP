@@ -19,9 +19,9 @@ class CarService:
     def removeCar(self, idCar):
         car = self.__carrepository.read(idCar)
 
-        self.__carrepository.remove(car)
+        self.__carrepository.remove(idCar)
 
     def updateCar(self, idCar, model, year, milage, guarantee):
-        car = self.__carrepository.read(idCar)
+        car = Car(idCar, model, year, milage, guarantee)
         self.__carValidation.validateCar(car)
         self.__carrepository.update(car)

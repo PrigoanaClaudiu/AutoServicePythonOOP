@@ -28,4 +28,4 @@ class RepositoryInMemory(Repository):
         if self.read(entity.idEntity) is None:
             raise KeyError("Entity not found")
 
-        self.entities[entity.idEntity].update(entity)
+        self.entities[entity.idEntity] = entity
